@@ -1,0 +1,432 @@
+/* --- Variabel Warna dan Font --- */
+:root {
+    --color-primary: #8B5A2B; /* Coklat Gelap/Emas Tua - Aksentuasi */
+    --color-secondary: #F4F0E8; /* Krem Muda - Latar Belakang */
+    --color-text-dark: #2C2C2C; /* Hitam Gelap - Teks Utama */
+    --color-white: #FFFFFF;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+/* --- Global Reset & Styling Dasar --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+/* --- Header & Navigasi --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--color-white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    color: var(--color-primary);
+    letter-spacing: 1px;
+}
+
+.nav a {
+    margin-left: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.nav-icons i {
+    margin-left: 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-icons i:hover {
+    color: var(--color-primary);
+}
+
+.menu-toggle {
+    display: none; /* Sembunyikan di desktop */
+}
+
+/* --- Hero Section (Banner Utama) --- */
+.hero {
+    background: url('images/hero-banner.jpg') no-repeat center center/cover; /* Ganti dengan gambar Unsplash Anda */
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+    position: relative;
+    /* Animasi: Overlay gradien gelap */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    z-index: 10;
+    max-width: 600px;
+}
+
+.hero-content h2 {
+    font-family: var(--font-heading);
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    /* Animasi: Fade-in dari bawah */
+    animation: fadeInSlideUp 1s ease-out forwards;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.cta-button, .cta-button-secondary {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+}
+
+.cta-button:hover, .cta-button-secondary:hover {
+    background-color: #A36F39; /* Shade lebih terang */
+    transform: scale(1.05);
+}
+
+/* --- Produk Section --- */
+.products {
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--color-text-dark);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05); /* Animasi Zoom pada Hover */
+}
+
+.product-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.product-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.price {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.buy-now-btn, .add-cart-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buy-now-btn {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.buy-now-btn:hover {
+    background-color: #A36F39;
+}
+
+.add-cart-btn {
+    background-color: #E0E0E0;
+    color: var(--color-text-dark);
+}
+
+.add-cart-btn:hover {
+    background-color: #D0D0D0;
+}
+
+/* --- CTA Banner --- */
+.cta-banner {
+    background-color: var(--color-text-dark);
+    color: var(--color-white);
+    padding: 50px 5%;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.cta-banner h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+.cta-banner p {
+    margin-bottom: 20px;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--color-text-dark);
+    color: #CCCCCC;
+    padding: 40px 5% 10px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #444;
+}
+
+.footer-section {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    font-family: var(--font-heading);
+    color: var(--color-white);
+    margin-bottom: 15px;
+}
+
+.footer-section a {
+    display: block;
+    color: #CCCCCC;
+    margin-bottom: 8px;
+}
+
+.footer-section a:hover {
+    color: var(--color-primary);
+}
+
+.footer-section p i {
+    margin-right: 10px;
+    color: var(--color-primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 15px;
+    font-size: 0.8em;
+    color: #999999;
+}
+
+/* --- Mobile Buy Bar (Hanya di Mobile) --- */
+.mobile-buy-bar {
+    display: none; /* Sembunyikan di desktop */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px;
+    justify-content: space-around;
+}
+
+.mobile-icon-btn, .mobile-buy-btn {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.mobile-icon-btn {
+    background-color: #E0E0E0;
+    color: var(--color-text-dark);
+}
+
+.mobile-buy-btn {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* --- Animasi Keyframes --- */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- Responsiveness (Mobile First) --- */
+
+/* Tablet dan Layar Lebih Kecil (max-width: 900px) */
+@media (max-width: 900px) {
+    .nav {
+        display: none; /* Sembunyikan Nav di Mobile/Tablet */
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-white);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+    
+    .nav.active { /* Class ini ditambahkan oleh JavaScript */
+        display: flex;
+    }
+
+    .nav a {
+        margin: 10px 5%;
+        padding: 10px 0;
+        border-bottom: 1px solid #EEE;
+    }
+    
+    .menu-toggle {
+        display: block; /* Tampilkan ikon menu */
+        margin-left: 15px;
+    }
+
+    .hero-content h2 {
+        font-size: 2.5em;
+    }
+
+    .footer-section {
+        width: 45%; /* Dua kolom di tablet */
+    }
+}
+
+/* Mobile (max-width: 600px) */
+@media (max-width: 600px) {
+    .header {
+        padding: 15px 5%;
+    }
+
+    .logo h1 {
+        font-size: 1.5em;
+    }
+
+    .hero {
+        min-height: 400px;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr; /* Satu kolom di mobile */
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        width: 100%;
+    }
+
+    /* Tampilkan Mobile Buy Bar */
+    .mobile-buy-bar {
+        display: flex;
+    }
+
+    /* Sembunyikan tombol Buy Now di kartu produk di mobile karena ada mobile-buy-bar */
+    .product-card .buy-now-btn,
+    .product-card .add-cart-btn {
+        display: none;
+    }
+    
+    .product-info {
+        padding: 15px;
+    }
+    
+    .product-info h3 {
+        font-size: 1.3em;
+    }
+}
